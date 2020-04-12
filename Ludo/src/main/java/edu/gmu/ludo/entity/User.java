@@ -110,7 +110,7 @@ public class User implements UserDetails {
 	}
 
 	public void addFailedAttempt() {
-		this.failedAttempt = failedAttempt + 1;
+		this.failedAttempt = failedAttempt==null?1:failedAttempt + 1;
 		if (this.failedAttempt > MAX_FAILED_TRY)
 			this.blocked = true;
 	}

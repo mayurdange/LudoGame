@@ -8,9 +8,9 @@
 		<div class="error">Your account has been blocked</div>
 	</c:if>
 	<h2>Login</h2>		
-	<form id="signin" action="/Ludo/j_spring_security_check" method="POST" autocomplete="off">
-		<label>UserName</label> <input type="text" name="j_username" tabindex="1" /> <label>Password</label> <input
-			type="password" name="j_password" tabindex="2" />
+	<form id="signin" action="/Ludo/login" method="POST" autocomplete="off">
+		<label>UserName</label> <input type="text" name="username" tabindex="1" /> <label>Password</label> <input
+			type="password" name="password" tabindex="2" />
 		<button type="submit">Login</button>
 		<a href="/Ludo/addUser.htm"><button type="button">New User</button></a>
 	</form>
