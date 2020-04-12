@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,8 +46,8 @@ public class LudoServiceImpl implements LudoService, UserDetailsService {
 	private GameDao gameDao;
 	@Autowired
 	private AuditTrailDao auditTrailDao;
-	@Autowired
-	private ShaPasswordEncoder passwordEncoder;
+//	@Autowired
+//	private ShaPasswordEncoder passwordEncoder;
 
 	@Override
 	public void registerUser(User user) throws LudoException {
@@ -55,7 +55,7 @@ public class LudoServiceImpl implements LudoService, UserDetailsService {
 		if (!errorList.isEmpty()) {
 			throw new LudoException(errorList);
 		}
-		user.encodePassword(passwordEncoder);
+		user.encodePassword(NoOpPasswordEncoder.getInstance());
 		userDao.saveOrUpdate(user);
 	}
 

@@ -10,6 +10,10 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+<listener>
+     <listener-class>org.springframework.boot.legacy.context.web.SpringBootContextLoaderListener</listener-class>
+</listener> 
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:/spring/applicationContext.xml, classpath:/spring/hibernateContext.xml, classpath:/spring/securityContext.xml</param-value>
